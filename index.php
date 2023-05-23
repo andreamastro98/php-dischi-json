@@ -13,7 +13,29 @@
 <body>
 
     <div id="app">
-        <h1>ciao</h1>
+        <div class="bg-body">
+
+            <!-- nav -->
+            <nav class="navbar mb-5">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">DISCHI JSON</a>
+                </div>
+            </nav>
+
+            <!-- body -->
+            <div class="container d-flex justify-content-between flex-wrap">
+
+                <div v-for="(elem,index) in data" :key="index" class="card mb-5 px-5 pt-5">
+                    <img :src="elem.poster" class="card-img-top" :alt="elem.title">
+                    <div class="card-body mt-2">
+                        <h5 class="card-title text-center">{{ elem.title }}</h5>
+                        <p class="card-text text-center">{{ elem.author }}</p>
+                        <h5 class="text-center">{{ elem.year }}</h5>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

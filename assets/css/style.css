@@ -1,0 +1,22 @@
+.navbar{
+    background-color: #06131F;
+}
+
+.navbar-brand{
+    color: green;
+}
+
+.bg-body{
+    background-color: #1D2D3C!important;
+    min-height: 100vh;
+}
+
+.card{
+    width: 28%;
+    background-color: #112030;
+    color: white;
+}
+
+.card img{
+    width: 100%;
+}

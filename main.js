@@ -4,6 +4,7 @@ createApp({
     data() {
         return {
             apiUrl: 'apis/jsonDischi.php',
+            data:'',
         }
     },
     methods: {
@@ -11,6 +12,7 @@ createApp({
             axios.get(this.apiUrl)
                 .then((res) => {
                     this.data = res.data;
+                    console.log(res.data)
                 });
         },
     },
