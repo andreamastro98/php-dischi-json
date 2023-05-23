@@ -8,6 +8,7 @@
     <title>Php dischi json</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous' />
 </head>
 
 <body>
@@ -23,15 +24,31 @@
             </nav>
 
             <!-- body -->
-            <div class="container d-flex justify-content-between flex-wrap">
+            <div class="container d-flex justify-content-between flex-wrap position-relative">
 
-                <div v-for="(elem,index) in data" :key="index" class="card mb-5 px-5 pt-5">
+                <!-- card ciclata -->
+                <div v-for="(elem,index) in data" :key="index" class="card card-1 mb-5 px-5 pt-5" @click="(activeDisc = index),(show = true)">
                     <img :src="elem.poster" class="card-img-top" :alt="elem.title">
                     <div class="card-body mt-2">
                         <h5 class="card-title text-center">{{ elem.title }}</h5>
                         <p class="card-text text-center">{{ elem.author }}</p>
                         <h5 class="text-center">{{ elem.year }}</h5>
                     </div>
+                </div>
+
+                <!-- div anteprima -->
+                <div class="preview text-center" :class="( show == true ) ? 'd-block' : ''">
+
+                    <div v-for="(elem,index) in data[activeDisc]" class="card card-2 mb-5 px-5 pt-5 position-absolute top-50 start-50 translate-middle">
+                        <img :src="elem.poster" class="card-img-top" alt="elem.title">
+                        <div class="card-body mt-2">
+                            <h5 class="card-title text-center">{{ elem.title }}</h5>
+                            <p class="card-text text-center">{{ elem.author }}</p>
+                            <h5 class="text-center">{{ elem.year }}</h5>
+                        </div>
+                    </div>
+
+                    <button @click="(show = false)" type="button" class="btn btn-outline-light"><i class="fa-solid fa-x"></i></button>
                 </div>
 
             </div>

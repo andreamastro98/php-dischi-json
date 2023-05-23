@@ -5,6 +5,8 @@ createApp({
         return {
             apiUrl: 'apis/jsonDischi.php',
             data:'',
+            show: false,
+            activeDisc:''
         }
     },
     methods: {
