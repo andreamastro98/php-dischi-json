@@ -27,7 +27,7 @@
             <div class="container d-flex justify-content-between flex-wrap position-relative">
 
                 <!-- card ciclata -->
-                <div v-for="(elem,index) in data" :key="index" class="card card-1 mb-5 px-5 pt-5" @click="(activeDisc = index),(show = true)">
+                <div v-for="(elem,index) in data" :key="index" class="card card-1 mb-4 px-5 pt-5" @click="(activeDisc = elem),(show = true)">
                     <img :src="elem.poster" class="card-img-top" :alt="elem.title">
                     <div class="card-body mt-2">
                         <h5 class="card-title text-center">{{ elem.title }}</h5>
@@ -39,12 +39,12 @@
                 <!-- div anteprima -->
                 <div class="preview text-center" :class="( show == true ) ? 'd-block' : ''">
 
-                    <div v-for="(elem,index) in data[activeDisc]" class="card card-2 mb-5 px-5 pt-5 position-absolute top-50 start-50 translate-middle">
-                        <img :src="elem.poster" class="card-img-top" alt="elem.title">
+                    <div class="card card-2 mb-5 px-5 pt-5 position-absolute top-50 start-50 translate-middle">
+                        <img :src="activeDisc.poster" class="card-img-top" alt="elem.title">
                         <div class="card-body mt-2">
-                            <h5 class="card-title text-center">{{ elem.title }}</h5>
-                            <p class="card-text text-center">{{ elem.author }}</p>
-                            <h5 class="text-center">{{ elem.year }}</h5>
+                            <h5 class="card-title text-center">{{ activeDisc.title }}</h5>
+                            <p class="card-text text-center">{{ activeDisc.author }}</p>
+                            <h5 class="text-center">{{ activeDisc.year }}</h5>
                         </div>
                     </div>
 
